@@ -1,4 +1,5 @@
-public abstract class ServiceStation {
+public interface ServiceStation {
 
-    public abstract void check(Vehicle vehicle);
+    public void check();
+    
 }

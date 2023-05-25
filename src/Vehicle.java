@@ -1,16 +1,10 @@
-public class Vehicle extends ServiceStation{
-    private String type;
-    private String modelName;
-    private int wheelsCount;
+public abstract class Vehicle implements ServiceStation {
+    private final String modelName;
+    private final int wheelsCount;
 
-    public Vehicle(String type, String modelName, int wheelsCount) {
-        this.type = type;
+    public Vehicle(String modelName, int wheelsCount) {
         this.modelName = modelName;
         this.wheelsCount = wheelsCount;
-    }
-
-    public String getType() {
-        return type;
     }
 
     public String getModelName() {
@@ -24,7 +18,6 @@ public class Vehicle extends ServiceStation{
     @Override
     public String toString() {
         return "Vehicle{" +
-                "type='" + type + '\'' +
                 ", modelName='" + modelName + '\'' +
                 ", wheelsCount=" + wheelsCount +
                 '}';
@@ -42,27 +35,4 @@ public class Vehicle extends ServiceStation{
         System.out.println("Проверяем прицеп");
     }
 
-    public void check(Vehicle vehicle) {
-        String car = "Car";
-        String truck = "Truck";
-        if (car.equals(vehicle.getType())) {
-            System.out.println("Обслуживаем " + vehicle.getType() + " " + vehicle.getModelName());
-            for (int i = 0; i < vehicle.getWheelsCount(); i++) {
-                vehicle.updateTyre();
-            }
-            vehicle.checkEngine();
-        } else if (truck.equals(vehicle.getType())) {
-            System.out.println("Обслуживаем " + vehicle.getType() + " " + vehicle.getModelName());
-            for (int i = 0; i < vehicle.getWheelsCount(); i++) {
-                vehicle.updateTyre();
-            }
-            vehicle.checkEngine();
-            vehicle.checkTrailer();
-        } else {
-            System.out.println("Обслуживаем " + vehicle.getType() + " " + vehicle.getModelName());
-            for (int i = 0; i < vehicle.getWheelsCount(); i++) {
-                vehicle.updateTyre();
-            }
-        }
-    }
 }
